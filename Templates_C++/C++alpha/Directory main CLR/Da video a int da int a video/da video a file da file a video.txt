@@ -1,0 +1,8 @@
+int zahl1 = int::Parse(textBox1->Text);
+int zahl2 = Convert::ToInt32(textBox2->Text);
+
+
+int ergebnis = zahl1 + zahl2;
+label_Add->Text = ergebnis.ToString();
+	}
+}

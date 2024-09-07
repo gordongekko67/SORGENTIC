@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/Modello_classe",
+      "program": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/Modello_classe/build/Debug/outDebug"
+    }
+  ]
+}

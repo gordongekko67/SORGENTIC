@@ -1,0 +1,7 @@
+cout<<"Enter tax ID: ";
+cin>>id;
+cin.ignore();
+cout<<"\nEnter name: ";
+getline(cin,name);
+cout<<"\nEnter salary: ";
+cin>>salary;

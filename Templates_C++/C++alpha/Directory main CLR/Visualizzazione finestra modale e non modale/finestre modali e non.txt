@@ -1,0 +1,7 @@
+// finestra modale (non lascioa fare nulla
+	finestradelcazzo^ fine = gcnew finestradelcazzo();
+	fine->ShowDialog();
+
+	// finestra non modale si puo ' interagire co le finestre sotto
+	//finestradelcazzo^ fine = gcnew finestradelcazzo();
+	fine->Show();

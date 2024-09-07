@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: la directory intermedia (Debug\) contiene file condivisi da un altro progetto (operatore del cazzo.vcxproj). Tale condizione può comportare un comportamento di pulizia e ricompilazione non corretto.
+  Overload operatori punto e cubo.cpp
+  operatore del cazzo.vcxproj -> C:\Users\Enrico\documents\visual studio 2017\Projects\operatore del cazzo\Debug\Overload operatori punto e cubo.exe
+  operatore del cazzo.vcxproj -> C:\Users\Enrico\documents\visual studio 2017\Projects\operatore del cazzo\Debug\Overload operatori punto e cubo.pdb (Partial PDB)

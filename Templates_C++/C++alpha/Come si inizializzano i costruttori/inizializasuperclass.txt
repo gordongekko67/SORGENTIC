@@ -1,0 +1,55 @@
+#include "Studente.h"
+#include <string>
+#include <iostream>
+
+Studente::Studente()
+{
+	Persona();
+	numMatricola = 0;
+	
+}
+
+Studente::Studente(std::string n, std::string c, std::string i, int numero) : Persona(n,c,i),numMatricola(numero)
+{
+	numMatricola = numero;
+
+}
+
+
+
+int Studente::getNumMatricola()
+{
+	return numMatricola;
+}
+
+void Studente::setNumMatricola(int& i)
+{
+	numMatricola = i;
+}
+
+void Studente::stampaStudente()
+{
+	stampaPersona();
+	std::cout << " il numero di martricola" << numMatricola << std::endl;
+}
+
+void Studente::stampaPersona()
+{
+	
+	std::cout << " io sono il meto che va in sovrapposizione " << std::endl;
+	std::cout << " i dati della persona sono " << std::endl;
+	Persona::stampaPersona();
+}
+
+void Studente::stampas()
+{
+	stampaPersona();
+	std::cout << " il numero di maricola" << numMatricola << std::endl;
+
+
+}
+
+void Studente::studio()
+{
+	std::cout << " io sono uno studente povero  e studio con pochi mezzi " << std::endl;
+}

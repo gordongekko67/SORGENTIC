@@ -1,0 +1,8 @@
+const int gir = sizeof(s2) / sizeof(s2[0]);
+
+	for (unsigned int i = 0; i < gir; i++)
+	{
+		s2[i]->stampaPersona();
+		s2[i]->studio();
+	
+	}
