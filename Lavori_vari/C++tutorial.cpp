@@ -76,6 +76,18 @@ int main()
     cout << "Hello World!";
     cout << "I am learning C++";
 
+    //  questo e' il sizeof
+    int arr[]= {1,2,3,4,5};
+
+    cout << sizeof(char) << endl;
+    cout << sizeof(int)  << endl;
+    cout << sizeof(float) << endl;
+    cout << sizeof(int)  << endl;
+    cout << sizeof(arr)  << endl;
+    cout << sizeof(arr[0])  << endl;
+
+
+
     int count = 10;
 
     for (size_t i = 0; i < count; i++)
