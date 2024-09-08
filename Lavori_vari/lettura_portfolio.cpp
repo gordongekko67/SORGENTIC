@@ -67,6 +67,7 @@ int main() {
         std::string giorniRestantiAllUGT = fields[19];
 
         // Stampa i valori (puoi sostituire questa parte con qualsiasi logica di elaborazione necessaria)
+        /*
         std::cout << "Strumento finanziario: " << strumentoFinanziario << std::endl;
         std::cout << "Operazione ticker: " << operazioneTicker << std::endl;
         std::cout << "Delta: " << delta << std::endl;
@@ -87,10 +88,8 @@ int main() {
         std::cout << "Vega portafoglio: " << vegaPortafoglio << std::endl;
         std::cout << "Theta portafoglio: " << thetaPortafoglio << std::endl;
         std::cout << "Giorni restanti all'UGT: " << giorniRestantiAllUGT << std::endl;
-
-        
-
-        
+        */
+       
         
 
 // Utilizza std::istringstream per suddividere la stringa
@@ -110,8 +109,8 @@ int main() {
 
     // Stampa il risultato
     
-    cout << "simbolo_scadenza " << simbolo_scadenza << endl;
-    cout <<  "delta "   <<  valore_Delta_riga  <<  endl;
+    //cout << "simbolo_scadenza " << simbolo_scadenza << endl;
+    //cout <<  "delta "   <<  valore_Delta_riga  <<  endl;
 
 
      // Cerca se l'etichetta esiste già nel vettore etichette
@@ -129,7 +128,14 @@ int main() {
     
 
     // Separatore per le righe (opzionale)
-    std::cout << "-------------------------" << std::endl;
+    //std::cout << "-------------------------" << std::endl;
+
+
+    // alla fine della elaborazione della riga stampa 
+    if (valore_Delta > 0.45 and int_Posizione <0){
+
+        std::cout << " attenzione il titolo si avvicina a ITM se non lo è già  " << simbolo_scadenza <<  " "<< int_Posizione << valore_Delta<< endl;
+    }
 
 
     }
@@ -149,35 +155,19 @@ int main() {
     for (size_t i = 0; i < etichette.size(); ++i) {
         etichettaValore.push_back(std::make_pair(etichette[i], std::abs(valori[i])));
     }
-/*
-    // Ordinare il vettore di coppie in base ai valori (in ordine decrescente)
-    std::sort(etichettaValore.begin(), etichettaValore.end(), 
-        [](const std::pair<std::string, double>& a, const std::pair<std::string, double>& b) {
-            return b.second < a.second; // Ordine decrescente
-        });
 
-
-
-
-
-
-*/
     // Stampare le etichette e i valori ordinati
     std::cout << "Elementi con relativo delta " << std::endl;
     for (const auto& ev : etichettaValore) {
         
-        std::cout << ev.first << ": " << ev.second << std::endl;
+        //std::cout << ev.first << ": " << ev.second << std::endl;
 
         if(ev.second > 20){
 
-            cout << " attenzione ! la posizione di  "  << ev.first << " è squilibrata " <<  endl;
+            cout << "Attenzione ! la posizione di  "  << ev.first << " è squilibrata " <<  endl;
 
         }
     }
-
-
-
-
 
 
     // Chiudi il file
