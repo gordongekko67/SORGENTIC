@@ -6,6 +6,20 @@
 
 using namespace std;
 
+
+struct MyStructure2{
+    int valore;
+    std::string descrizione;
+    bool veroFalso;
+    float numeroDimensione;
+
+};
+
+std::vector<MyStructure2> v4;
+
+
+
+
 int main()
 {
 
@@ -44,6 +58,28 @@ int main()
 
     std::vector<int> v2(5); 
     v2.assign(5,100); // Assign the given values to the vector 
+
+
+
+    // altro iteratore molto bello 
+
+
+    MyStructure2 a3;
+    for (int i = 0; i < 10; i++)
+
+    {
+        a3.valore=i;
+        a3.descrizione="Le lasagne della nonna";
+        v4.push_back(a3);
+    }
+    
+    for (auto it = begin (v4); it != end (v4); ++it) {
+
+        cout << it->valore << endl;
+        cout << it->descrizione << endl;
+        
+}
+
 
 
 
