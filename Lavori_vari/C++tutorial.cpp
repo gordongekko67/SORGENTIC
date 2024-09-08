@@ -87,6 +87,14 @@ int main()
     cout << sizeof(arr[0])  << endl;
 
 
+    int arr1[5]={1,2,3,2,1};
+   //define an integer array of size 5
+
+   for(auto it:arr1)
+      cout<<it<<"funziona il loop  "<< endl;
+   //print the elements of array
+
+
 
     int count = 10;
 

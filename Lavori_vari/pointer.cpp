@@ -26,6 +26,14 @@ int main(){
 
 
 
+   int b = 1;
+   int *ptrb = &b;
+
+   cout << ptrb<<  " indirizzop valore del puntatore " <<  endl;
+   cout << *ptrb<<  " valore del puntatore " <<  endl;
+
+
+
    return 0;
 }
 
