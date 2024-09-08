@@ -11,6 +11,15 @@ struct MyStructure { // Structure declaration
   string myString;   // Member (string variable)
 };  
 
+struct MyStructure2{
+    int valore;
+    std::string descrizione;
+    bool veroFalso;
+    float numeroDimensione;
+
+};
+
+std::vector<MyStructure2> v2;
 std::vector<MyStructure> v;
 
 
@@ -247,6 +256,25 @@ int main()
     }
     cout << endl;
   
+
+    MyStructure2 a3;
+    
+
+    for (int i = 0; i < 10; i++)
+
+    {
+        a3.valore=i;
+        a3.descrizione="Le lasagne della nonna";
+        v2.push_back(a3);
+    }
+    
+    for (auto it = begin (v2); it != end (v2); ++it) {
+
+        cout << it->valore << endl;
+        cout << it->descrizione << endl;
+        
+}
+
 
     return 0;
 }
