@@ -1,11 +1,11 @@
 // template.cpp : definisce il punto di ingresso dell'applicazione console.
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <vector>
 
 using namespace std;
+
 // funktion
 template<typename T >
 T min(T  a, T b)
@@ -18,9 +18,9 @@ T min(T  a, T b)
 template<typename T >
 void tausche(vector <T>& v)
 {
-	T  tmp = v[0];
+	T a = v[0];
 	v[0] = v[1];
-	v[1] = tmp;
+	v[1] = a;
 
 }
 
@@ -44,19 +44,42 @@ T2 addiere(T1 x, T2 y)
 
 int main()
 {
-	vector< int > vI = { 10, 20 };
-	vector<double>vD = { 10.3 , 20.5 };
-	vector<char> vC = { 'a', 'b' };
+	std::vector<int> vI;
+	vector<double>vD;
+	vector<char> vC;
+	
+	for (size_t i = 0; i < 2; i++)
+	{
+		vI[i]=i;
+	}
+	
+	
+
+
+
+	
+
+
+
+	
+
 
 	int a = 3; int  b = 4;
 	float d1 = 3.5, d2 = 5.9;
 	//char c1 = 'g', char c2 = 'u';
-	cout << " Minimun von " << a << b << min(a, b) << endl;
+	cout << " Minimun von " << a << b << "  is "  <<std::min(a, b) << endl;
 
 	cout << " addiction mit 2 verschidene " << addiere(a, d1) << endl;
+
+
+	cout << "  " << vI[0] << vI[1] << endl;
+	cout << "  " << vD[0] << vD[1] << endl;
+	cout << "  " << vC[0] << vC[1] << endl;
+
 	tausche(vI);
 	tausche(vD);
 	tausche(vC);
+
 	cout << "  " << vI[0] << vI[1] << endl;
 	cout << "  " << vD[0] << vD[1] << endl;
 	cout << "  " << vC[0] << vC[1] << endl;
