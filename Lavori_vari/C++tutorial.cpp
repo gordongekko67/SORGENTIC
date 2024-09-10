@@ -5,23 +5,22 @@
 
 using namespace std;
 
+struct MyStructure
+{                    // Structure declaration
+    int myNum;       // Member (int variable)
+    string myString; // Member (string variable)
+};
 
-struct MyStructure { // Structure declaration
-  int myNum;         // Member (int variable)
-  string myString;   // Member (string variable)
-};  
-
-struct MyStructure2{
+struct MyStructure2
+{
     int valore;
     std::string descrizione;
     bool veroFalso;
     float numeroDimensione;
-
 };
 
 std::vector<MyStructure2> v2;
 std::vector<MyStructure> v;
-
 
 double elevamento_potenza(double &valore, int &potenza)
 {
@@ -32,7 +31,6 @@ double elevamento_potenza(double &valore, int &potenza)
         valore_ritorno *= valore;
     }
 
-    
     return (valore_ritorno);
 }
 
@@ -45,23 +43,37 @@ double elevamento_potenza2(double *valore, int *potenza)
         valore_ritorno *= *valore;
     }
 
-    *valore=5.3;
+    *valore = 5.3;
 
     return (valore_ritorno);
 }
 
-double getAverage(int *arr, int size) {
-   int i, sum = 0;       
-   double avg;          
- 
-   for (i = 0; i < size; ++i) {
-      sum += arr[i];
-   }
-   avg = double(sum) / size;
- 
-   return avg;
+double getAverage(int *arr, int size)
+{
+    int i, sum = 0;
+    double avg;
+
+    for (i = 0; i < size; ++i)
+    {
+        sum += arr[i];
+    }
+    avg = double(sum) / size;
+
+    return avg;
 }
 
+
+void passavec(const vector<int> &v7){
+
+    // Print vector elements
+    for (auto lab : v7)
+    {
+        cout << lab << "\n";
+    }
+
+
+
+}
 
 
 
@@ -77,24 +89,21 @@ int main()
     cout << "I am learning C++";
 
     //  questo e' il sizeof
-    int arr[]= {1,2,3,4,5};
+    int arr[] = {1, 2, 3, 4, 5};
 
     cout << sizeof(char) << endl;
-    cout << sizeof(int)  << endl;
+    cout << sizeof(int) << endl;
     cout << sizeof(float) << endl;
-    cout << sizeof(int)  << endl;
-    cout << sizeof(arr)  << endl;
-    cout << sizeof(arr[0])  << endl;
+    cout << sizeof(int) << endl;
+    cout << sizeof(arr) << endl;
+    cout << sizeof(arr[0]) << endl;
 
+    int arr1[5] = {1, 2, 3, 2, 1};
+    // define an integer array of size 5
 
-    int arr1[5]={1,2,3,2,1};
-   //define an integer array of size 5
-
-   for(auto it:arr1)
-      cout<<it<<"funziona il loop  "<< endl;
-   //print the elements of array
-
-
+    for (auto it : arr1)
+        cout << it << "funziona il loop  " << endl;
+    // print the elements of array
 
     int count = 10;
 
@@ -185,72 +194,59 @@ int main()
     myString3.at(0) = 'J';
     cout << myString3; // Outputs Jello
 
-
-  
-
     double valore = 3;
     int potenza = 2;
-    double* ptrvalore = &valore;
-    int * ptrpotenza = &potenza;
+    double *ptrvalore = &valore;
+    int *ptrpotenza = &potenza;
     double risultato = elevamento_potenza(valore, potenza);
     double risultato2 = elevamento_potenza2(&valore, &potenza);
-    
 
     cout << " il risultato dell elevamento a potenza e " << risultato << endl;
     cout << " il risultato dell elevamento a potenza e " << risultato2 << endl;
-    cout << " il valore di ritorno alla funzione e stato modificato in  " << valore << endl; 
+    cout << " il valore di ritorno alla funzione e stato modificato in  " << valore << endl;
 
     // passando array to una funzione
     // an int array with 5 elements.
-   int balance[5] = {1000, 2, 3, 17, 50};
-   double avg;
- 
-   // pass pointer to the array as an argument.
-   avg = getAverage( balance, 5 ) ;
- 
-   // output the returned value 
-   cout << "Average value is: " << avg << endl; 
+    int balance[5] = {1000, 2, 3, 17, 50};
+    double avg;
 
-   int a= 0;
-   int b= 1;
-    
-   if (a>b)
-   {
-    /* code */
-   }
-   
+    // pass pointer to the array as an argument.
+    avg = getAverage(balance, 5);
 
-   
-    
+    // output the returned value
+    cout << "Average value is: " << avg << endl;
+
+    int a = 0;
+    int b = 1;
+
+    if (a > b)
+    {
+        /* code */
+    }
 
     for (int i = 0; i < 10; i++)
     {
-        
+
         MyStructure a1;
 
-        a1.myNum=10;
-        a1.myString="prova";
+        a1.myNum = 10;
+        a1.myString = "prova";
         v.push_back(a1);
     }
-    
 
     for (int i = 0; i < v.size(); i++)
     {
         MyStructure a1;
-        a1=v[i];
+        a1 = v[i];
 
         cout << a1.myNum << a1.myString << endl;
-
-        
     }
-    
 
-    // col vector non si può assegnare direttamente 
-    vector <int> v;
+    // col vector non si può assegnare direttamente
+    vector<int> v;
     //  bensi usare la parola chiave assign
 
-    v.assign(5,2);
-
+    v.assign(5, 2);
 
     vector<int> c1;
     vector<int>::iterator c1_Iter;
@@ -275,27 +271,69 @@ int main()
         cout << " " << *c1_Iter;
     }
     cout << endl;
-  
 
     MyStructure2 a3;
-    
 
     for (int i = 0; i < 10; i++)
 
     {
-        a3.valore=i;
-        a3.descrizione="Le lasagne della nonna";
+        a3.valore = i;
+        a3.descrizione = "Le lasagne della nonna";
         v2.push_back(a3);
     }
-    
-    for (auto it = begin (v2); it != end (v2); ++it) {
+
+    for (auto it = begin(v2); it != end(v2); ++it)
+    {
 
         cout << it->valore << endl;
         cout << it->descrizione << endl;
-        
-}
+    }
 
+    // Create a vector called cars that will store strings
+    vector<string> cars ;
+    // Change the value of the first element
+
+    std::string arr4[10]= {"Tesla.", "Fiat", "opel"};
+
+
+    for (int i = 0; i < 10 ; i++)
+    {
+        if (arr4[i]!=" "){
+            cars.push_back(arr4[i]);
+        }
+        
+    }
+    
+
+    
+    
+
+    // Print vector elements
+    for (string car : cars)
+    {
+        cout << car << "\n";
+    }
+
+
+    std::vector<int> v7 ;
+    v7.push_back(1);
+    v7.push_back(2);
+    v7.push_back(3);
+
+    passavec(v7);
+
+    int arr2[10];
+
+    for (size_t i = 0; i < 10; i++)
+    {
+        arr2[i] = i; /* code */
+        std::cout << arr2[i] << std::endl;
+    }
+
+    for (int i : arr2)
+    {
+        cout << i << "\n";
+    }
 
     return 0;
 }
-
