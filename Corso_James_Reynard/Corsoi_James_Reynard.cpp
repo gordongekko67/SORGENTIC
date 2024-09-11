@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -104,7 +105,26 @@ int main (){
     std::cout << "address of y by address  "  <<  &y << std::endl;
     std::cout << "valore di x dopo address x by address  "  <<  x << std::endl;
 
+    //  tutto si inizializza con {}
+    int in = {5};
+    int arr[5] = {1, 2, 3, 4, 5};
 
+    vector<int> vect;
+    vect.push_back(10);
+    vect.push_back(20);
+
+    // iterazione basata su indici per un container std::vector non funziona 
+
+    /*
+    
+    
+    std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    for (int i = 0; i < vec.size(); i++)
+    {
+        std::cout << vec[i] << ' ';
+    }
+
+    */
 
     return 0;
 }
