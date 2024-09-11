@@ -27,8 +27,9 @@ int main()
     }
 
  
-
-
+    int i={1};
+    std::cout << "hello world \n";
+    std::cout << "hello world \n";
 
 
     return 0;

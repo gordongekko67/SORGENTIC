@@ -77,6 +77,26 @@ void passavec(const vector<int> &v7){
 
 
 
+void passavettore(const vector<int> &v7){
+
+    // Print vector elements
+    for (auto lab : v7)
+    {
+        cout << lab << "\n";
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
 
 int main()
 {
@@ -334,6 +354,25 @@ int main()
     {
         cout << i << "\n";
     }
+
+
+
+    std::vector <int>v6;
+
+    v6.push_back(1);
+    v6.push_back(2);
+
+
+    passavettore(v6);
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
