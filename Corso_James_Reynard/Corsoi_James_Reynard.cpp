@@ -4,6 +4,11 @@
 
 using namespace std;
 
+using vec_new =vector <int>;
+
+
+
+
 
 int calcola (int x , int y){
 
@@ -50,8 +55,14 @@ int passaaddress (int* x , int* y){
 
 }
 
-
-
+void print_vector(const vector<int> &vect)
+{
+    for (int i = 0; i < vect.size(); i++)
+    {
+        std::cout << vect[i] << " stampa del vettore  " <<endl;
+    }
+    
+}
 
 int main (){
 
@@ -125,6 +136,26 @@ int main (){
     }
 
     */
+
+    print_vector(vect);
+
+
+    vector<int> vect1;
+    vect1.push_back(30);
+    vect1.push_back(40);
+
+    print_vector(vect1);
+
+
+
+    //  tramite la direttiva using si puo' riscrivere un vettore dii vettori in maniera piu pulita 
+
+    vector <vector <int> > vec_of_vec;
+
+    vector <vec_new> vec_1;
+
+    
+
 
     return 0;
 }
