@@ -1,7 +1,7 @@
 // Regular ausdruck.cpp : spezzare testo con espressioni regolari 
 //
 
-#include "stdafx.h"
+
 #include <regex>
 #include <iostream>
 

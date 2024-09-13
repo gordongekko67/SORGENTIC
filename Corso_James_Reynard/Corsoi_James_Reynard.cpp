@@ -154,7 +154,65 @@ int main (){
 
     vector <vec_new> vec_1;
 
+    // allocazione di memoria sullo Heap
+
+
+    int c =1;
+
+    int *p1 = new int[42];
     
+
+    std::cout  << *p1 << std::endl;
+    delete []p1;
+
+
+    int *p2 = new int[20];
+
+
+    for (int i =0; i <20; i++){
+
+        std::cout << p2[i] << std::endl;
+    }
+
+    delete []p2;
+
+
+
+
+    int ii  = 5;
+    int *ptrii = &ii;
+
+    int *ptri4 = new int;
+    *ptri4=(10);
+    
+
+    std::cout <<  *ptri4 << std:: endl;
+
+    delete ptri4;
+
+
+    int *pa = new int[10];
+
+    for (int i = 0; i < 10; i++)
+        {
+         pa[i]=i;
+         std::cout << pa[i] << "  "  << endl;
+    }
+    
+    delete [] pa;
+
+
+
+    int var[5]={1,2,3,4,5};
+
+    for (int i = 0; i < 5; i++)
+    {
+        var[i]=9;
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        std::cout <<  var[i]<< endl;
+    }
 
 
     return 0;
