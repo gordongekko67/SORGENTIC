@@ -215,9 +215,30 @@ int main() {
 
 
 
+    int integralei   =1;
+    std::cout << sizeof(integralei)<< endl;
+
+    uint8_t uint8var;
+    uint16_t uint16var;
+    uint32_t uint32var;
+    uint64_t uint64var;
+    std::cout << sizeof(uint8var) << endl;
+    std::cout << sizeof(uint16var) << endl;
+    std::cout << sizeof(uint32var) << endl;
+    std::cout << sizeof(uint64var) << endl;
 
 
+    int hexadecimal = 0x2a;
+    cout << hexadecimal << endl;
 
+
+    //  caratteri di escape 
+    string txt1 = "We are the so-called\\\"Vikings\" from the north.\n";
+    string txt2 = "We are the so-called \\ Vikings \\ from the north.\n";
+    string txt3 = "The character \\ is called backslash.\n";
+
+    std::cout << "prova   \n";
+    std::cout  << txt1 <<  txt2 << txt3 <<"   \n";
 
 
     return 0;
