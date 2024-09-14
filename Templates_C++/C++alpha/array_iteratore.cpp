@@ -27,6 +27,19 @@ int main()
     }
 
  
+       
+   for(auto it:arr1)
+      cout<<it<<"primo loop  \n";
+   //print the elements of array
+
+
+
+    for (auto it = begin (arr1); it != end (arr1); ++it) {
+
+        cout << *it << "secondo loop \n" <<endl;
+        
+        
+}
 
 
 

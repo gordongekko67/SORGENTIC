@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -239,6 +240,61 @@ int main() {
 
     std::cout << "prova   \n";
     std::cout  << txt1 <<  txt2 << txt3 <<"   \n";
+
+
+
+    // bubble sort 
+    int arr1[10]={9,2,6,7,5,6,3,1,0,2};
+
+    std::sort(std::begin(arr1), std::end(arr1));  
+
+      
+   for(auto it:arr1)
+      cout<<it<<"primo loop  \n";
+   //print the elements of array
+
+
+
+    for (auto it = begin (arr1); it != end (arr1); ++it) {
+
+        cout << *it << "secondo loop \n" <<endl;
+        
+        
+}
+
+
+    //  static cast 
+    float f = 3.5;
+    
+ 
+    // Implicit type case
+    // float to int
+    int acast = f;
+    std::cout << "The Value of a: " << acast;
+ 
+    // using static_cast for float to int
+    int bcast = static_cast<int>(f);
+    std::cout << "\nThe Value of b: " << bcast;
+
+    // using static_cast for float to int
+    int ccast = static_cast<char>(f);
+    std::cout << "\nThe Value of c: " << ccast;
+
+    
+    std::string shello ="Hello World";
+    auto numEle= shello.size();
+    
+
+    for (int i=0; i <numEle; i++)
+    {
+
+        std::cout << shello[i] << endl;
+
+    }
+
+
+
+
 
 
     return 0;
