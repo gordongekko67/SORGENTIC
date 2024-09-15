@@ -45,6 +45,27 @@ int main()
         
 }
 
+    int arr2[] = {1, 2, 3, 4, 5};
+	
+	cout << "Iterator: ";
+	for (auto it = begin(arr2); it != end(arr2); ++it)
+		cout << *it << ", ";
+	
+	cout << endl << "Const iterator: ";
+	for (auto it = cbegin(arr2); it != cend(arr2); ++it)
+		cout << *it << ", ";
+	
+	cout << endl << "Reverse iterator: ";
+	for (auto it = rbegin(arr2); it != rend(arr2); ++it)
+        cout << *it << ", ";
+	
+	cout << endl << "Const reverse iterator: ";
+	for (auto it = crbegin(arr2); it != crend(arr2); ++it)
+        cout << *it << ", ";
+
+
+
+
 
 
 
