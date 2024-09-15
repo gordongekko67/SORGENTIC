@@ -32,5 +32,20 @@ int main()
     std::cout << "hello world \n";
 
 
+
+    // iteratore su stringhe co const 
+   
+   std::string str="ABCD";
+   string::const_iterator cit;
+
+   for(cit= str.begin(); cit != str.end(); cit++)
+        cout <<*cit << "|";
+
+
+
+
+
+
+
     return 0;
 }

@@ -1,7 +1,7 @@
 // punt a funzione.cpp : definisce il punto di ingresso dell'applicazione console.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 
 using namespace std;
@@ -23,8 +23,8 @@ int main()
 	int nx = 5; int ny = 6;
 	int operation;
 	do	{
-		cout << " immetter il tipo di operazione : 0 = add, 1= sub, 2= mult" << endl;
-		cin >> operation;
+		std::cout << " immetter il tipo di operazione : 0 = add, 1= sub, 2= mult" << endl;
+		std::cin >> operation;
 
 	} while (operation < 0 || operation > 2);
 
@@ -39,6 +39,6 @@ int main()
 	case 2: pFcn = Mult; break;
 	}
 	//
-	cout << " die answer is" << pFcn(nx, ny) << endl;
-	system("pause");
+	std::cout << " die answer is" << pFcn(nx, ny) << std::endl;
+	
 }

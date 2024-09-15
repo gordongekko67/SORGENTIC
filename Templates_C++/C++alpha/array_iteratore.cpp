@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -26,7 +27,10 @@ int main()
         cout << i << "\n";
     }
 
- 
+    
+    
+    
+    int arr1[5] = {1, 2, 3, 2, 1};
        
    for(auto it:arr1)
       cout<<it<<"primo loop  \n";
@@ -34,7 +38,7 @@ int main()
 
 
 
-    for (auto it = begin (arr1); it != end (arr1); ++it) {
+    for (auto it= begin(arr1);  it != end(arr1); ++it) {
 
         cout << *it << "secondo loop \n" <<endl;
         
