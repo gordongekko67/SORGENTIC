@@ -37,11 +37,25 @@ int main()
    
    std::string str="ABCD";
    string::const_iterator cit;
+   int giro =0;
 
    for(cit= str.begin(); cit != str.end(); cit++)
+   {
+        
         cout <<*cit << "|";
+        giro++;
+        if (giro ==2){
+            std::cout << " questo è il sccondo elemento " << *cit <<  endl;
+        }
 
 
+   }
+        
+    vector <int> vec2= {1,2,3};
+
+    auto iter = begin(vec2);
+
+    
 
 
 
