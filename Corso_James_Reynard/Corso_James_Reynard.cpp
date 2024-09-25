@@ -46,6 +46,13 @@ void print_vector(const vector<int> &vect) {
     }
 }
 
+int passavalore(int a, int b){
+
+    int ritorno = a+b;
+    return ritorno;
+}
+
+
 int main() {
 
     //  esercizio numero 1
@@ -94,6 +101,21 @@ int main() {
     std::cout << "address of x by address: " << &x << std::endl;
     std::cout << "address of y by address: " << &y << std::endl;
     std::cout << "valore di x dopo passaggio by address: " << x << std::endl;
+
+
+
+    // passaggio by value 
+    int a1b=5;
+    int b1b=6;
+
+    int somma = passavalore (a1b, b1b);
+
+    std::cout << " il valore di somma e'" <<  somma ;
+
+
+
+
+
 
     //  tutto si inizializza con {}
     int in = {5};
@@ -291,6 +313,21 @@ int main() {
         std::cout << shello[i] << endl;
 
     }
+
+
+    ///  static cast 
+
+    int a1= 6;
+    int a2= 26.0;
+
+    double c1 = a1/a2;
+
+
+
+    std:: cout << " value of C1" <<  static_cast<double> (c1)  <<  std::endl;
+
+
+
 
 
 
