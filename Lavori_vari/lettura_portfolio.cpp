@@ -132,9 +132,9 @@ int main() {
 
 
     // alla fine della elaborazione della riga stampa 
-    if (valore_Delta > 0.45 and int_Posizione <0){
+    if (valore_Delta > 0.4 and int_Posizione <0){
 
-        std::cout << " attenzione il titolo si avvicina a ITM se non lo è già  " << simbolo_scadenza <<  "pos.  "<< int_Posizione <<" Delta  " << valore_Delta<< endl;
+        std::cout << " attenzione il titolo si avvicina a ITM se non lo è già  " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
     }
 
 
