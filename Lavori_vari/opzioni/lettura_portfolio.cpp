@@ -19,7 +19,8 @@ std::vector<double> valori;  // Assume che i valori siano numerici
 
 
 int main() {
-    std::string filePath = "../../Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
+    //std::string filePath="../../Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
+    std::string filePath="/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
 
     std::ifstream file(filePath);
 
@@ -104,6 +105,7 @@ int main() {
 
     // calcolo i valori della riga 
     float valore_Delta = stof(delta);
+    float valore_Deltaabs= abs(valore_Delta);
     int int_Posizione = stoi(posizione);
     float valore_Delta_riga = int_Posizione*100*valore_Delta;
 
@@ -132,7 +134,7 @@ int main() {
 
 
     // alla fine della elaborazione della riga stampa 
-    if (valore_Delta > 0.4 and int_Posizione <0){
+    if (valore_Deltaabs > 0.4 and int_Posizione <0){
 
         std::cout << " attenzione il titolo si avvicina a ITM se non lo è già  " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
     }
