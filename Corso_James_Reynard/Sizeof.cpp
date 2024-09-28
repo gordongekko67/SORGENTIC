@@ -26,6 +26,22 @@ int main(){
 
     int Binary = 0b101010;
 
+    std::cout << Hexadecimal<< endl;
+    std::cout << Octal<< endl;
+    std::cout << Binary<< endl;
+
+
+    std::string stringa = "(dhdshdfjdhf\ssdsds)";
+    std::cout << stringa<< endl;
+
+
+    int a1 = 5;
+    int a2 = 9;
+
+    double c2  = static_cast<double>(a1/a2);
+    std::cout << c2<< endl;
+
+
 
 
 
