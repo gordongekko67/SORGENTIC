@@ -147,7 +147,8 @@ int main() {
     if (valore_Deltaabs > 0.5 and int_Posizione <0){
 
         std::cout << " attenzione il titolo è ITM !!! " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
-        void memorset(std::string simbolo_scadenza);
+        memorset(simbolo_scadenza);
+        
     }
 
 
@@ -157,7 +158,7 @@ int main() {
     if (valore_Deltaabs > 0.4 and int_Posizione <0){
 
         std::cout << " attenzione il titolo si avvicina a ITM se non lo è già  " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
-        void memorset(std::string simbolo_scadenza);
+        memorset(simbolo_scadenza);
     }
 
 
@@ -188,7 +189,7 @@ int main() {
         if(ev.second > 20){
 
             cout << "Attenzione ! la posizione di  "  << ev.first << " è squilibrata " <<  endl;
-            
+            memorset(ev.first);
             
         }
     }
