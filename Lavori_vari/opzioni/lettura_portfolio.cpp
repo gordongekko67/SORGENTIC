@@ -10,13 +10,23 @@
 #include <string>
 #include <vector>
 #include <algorithm> // Per std::find
+#include <set>
 
 using namespace std;
 
 
 std::vector<std::string> etichette;
 std::vector<double> valori;  // Assume che i valori siano numerici
+// Dichiarazione di un set per memorizzare i simboli dei titoli
+std::set<std::string> titoli_da_tenere_d_occhio;
 
+
+void memorset(std::string s){
+    titoli_da_tenere_d_occhio.insert(s);
+    std::cout << " inserito il valore " <<  s <<  endl;
+
+}
+    
 
 int main() {
     //std::string filePath="../../Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
@@ -133,10 +143,21 @@ int main() {
     //std::cout << "-------------------------" << std::endl;
 
 
+    // visualizza tutte le posizioni che sono ITM
+    if (valore_Deltaabs > 0.5 and int_Posizione <0){
+
+        std::cout << " attenzione il titolo è ITM !!! " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
+        void memorset(std::string simbolo_scadenza);
+    }
+
+
+
+
     // alla fine della elaborazione della riga stampa 
     if (valore_Deltaabs > 0.4 and int_Posizione <0){
 
         std::cout << " attenzione il titolo si avvicina a ITM se non lo è già  " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
+        void memorset(std::string simbolo_scadenza);
     }
 
 
@@ -167,8 +188,18 @@ int main() {
         if(ev.second > 20){
 
             cout << "Attenzione ! la posizione di  "  << ev.first << " è squilibrata " <<  endl;
-
+            
+            
         }
+    }
+
+
+
+
+    // Stampa del contenitore con i titoli unici
+    std::cout << "Titoli da tenere d'occhio:\n";
+    for (const auto& simbolo : titoli_da_tenere_d_occhio) {
+        std::cout << simbolo << std::endl;
     }
 
 
