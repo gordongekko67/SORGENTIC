@@ -151,6 +151,12 @@ int main(){
         std::cout << *i<<  endl;
     }
 
+    for (auto it = vstr.begin(); it!=vstr.end(); it++){
+
+        std::cout << *it<<  endl;
+    }
+
+
 
     return 0;
 }
