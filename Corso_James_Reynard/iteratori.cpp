@@ -158,5 +158,109 @@ int main(){
 
 
 
+    std::string::const_iterator coit;
+
+    for (coit= st.begin(); coit != st.end(); coit++){
+
+        std::cout << " questo e' un iteratore" << *coit <<  endl;
+
+    }
+
+    std::string::reverse_iterator rcoit;
+
+    for (rcoit= st.rbegin(); rcoit != st.rend(); rcoit++){
+
+        std::cout << " questo e' un iteratore inverso " << *rcoit <<  endl;
+
+    }
+
+    int ar[10] ={1,2,34,4,5,5, 6, 7, 7 , 8};
+
+    for (auto it = begin(ar); it !=end(arr); it++)    {
+
+            std::cout << *it <<  endl;
+    }
+
+    for (auto i : arr){
+
+        std::cout << " questa e' la forma concisa "<< arr[i] << endl;
+    }
+    
+    vector <int>v1;
+
+    v1.push_back(1);
+    v1.push_back(2);
+    v1.push_back(3);
+
+    for (auto& i : v1){
+
+        std::cout << " questa e' la forma concisa con modifica sul vettore "<<  "  " << i << endl;
+        i +=2;
+    }
+    for (auto& i : v1){
+
+        std::cout << " questa e' la forma concisa dopo la modifica  sul vettore "<<  "  " << i << endl;
+        
+    }
+
+
+
+
+
+    
+    for (auto it = begin(v1); it !=end(v1); it++)    {
+
+            std::cout << *it <<  endl;
+            auto a = (end(v1)-begin(v1));
+            std::cout << "num elementi " << a << endl;
+
+    }
+
+    
+    std::string stringa="prova di stampa";
+    for (auto it = begin(stringa); it !=end(stringa); it++) 
+       {
+
+            auto secondo = next(begin(stringa));
+            std::cout  << " questo e secondo " <<   *secondo <<  endl;
+
+            auto ultimo  = prev(end(stringa));
+            std::cout  << " questo e ultimo " <<   *ultimo  <<  endl;
+
+            auto mid = begin(stringa);
+            auto medio = distance( mid, (begin(stringa), end(stringa)));
+            std::cout  << " questo e medio " <<   medio  <<  endl;
+
+
+       }
+
+
+    std::string stringa1="abcdefghilmnopqrstuvz";
+    for (auto it = begin(stringa1); it !=end(stringa1); it++)
+       {
+
+            auto secondo = next(begin(stringa1));
+            std::cout  << " questo e secondo " <<   *secondo <<  endl;
+
+            auto ultimo  = prev(end(stringa1));
+            std::cout  << " questo e ultimo " <<   *ultimo  <<  endl;
+
+            auto mid = begin(stringa1);
+            auto medio = (distance(begin(stringa1), end(stringa1)));
+            
+            std::cout  << " questo e tutto " <<   medio  <<  endl;
+            auto medio1= medio/2;
+            std::cout  << " questo e medio " <<  char(it[medio])  <<  endl;
+                          
+       }
+
+
+
+
+
+
+
+    
+
     return 0;
 }
