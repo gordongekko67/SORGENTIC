@@ -23,6 +23,7 @@ std::vector<std::string> etichette;
 std::vector<double> valori;  // Assume che i valori siano numerici
 // Dichiarazione di un set per memorizzare i simboli dei titoli
 std::set<std::string> titoli_da_tenere_d_occhio;
+std::set<std::string> titoli_da_spostare;
 
 
 void memorset(std::string s){
@@ -30,6 +31,15 @@ void memorset(std::string s){
     std::cout << " inserito il valore " <<  s <<  endl;
 
 }
+
+
+void memorspo(std::string s){
+    titoli_da_spostare.insert(s);
+    std::cout << " inserito il valore  da spostare" <<  s <<  endl;
+
+}
+
+
     
 
 int main() {
@@ -155,6 +165,13 @@ int main() {
         
     }
 
+    // visualizza tutte le posizioni OTM  da spostare eventualmente 
+    if (valore_Deltaabs < 0.1 and int_Posizione <0){
+
+        std::cout << " attenzione il titolo è OTM !!!!! " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
+        memorspo(simbolo_scadenza);
+        
+    }
 
 
 
@@ -206,6 +223,14 @@ int main() {
     for (const auto& simbolo : titoli_da_tenere_d_occhio) {
         std::cout << simbolo << std::endl;
     }
+
+    // Stampa del contenitore con i titoli da spostare
+    std::cout << "Titoli da spostare:\n";
+    for (const auto& simbolo : titoli_da_spostare) {
+        std::cout << simbolo << std::endl;
+    }
+
+
 
 
     std::cout << "Fine programma"<< endl;
