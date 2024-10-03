@@ -28,14 +28,14 @@ std::set<std::string> titoli_da_spostare;
 
 void memorset(std::string s){
     titoli_da_tenere_d_occhio.insert(s);
-    std::cout << " inserito il valore " <<  s <<  endl;
+    //std::cout << " inserito il valore " <<  s <<  endl;
 
 }
 
 
 void memorspo(std::string s){
     titoli_da_spostare.insert(s);
-    std::cout << " inserito il valore  da spostare" <<  s <<  endl;
+    //std::cout << " inserito il valore  da spostare" <<  s <<  endl;
 
 }
 
@@ -187,6 +187,7 @@ int main() {
 
     // Alla fine stampa etichette e valori 
     // Visualizza il contenuto dei vettori
+    std::cout << "\n";
     std::cout << "Etichette e valori combinati:" << std::endl;
     for (size_t i = 0; i < etichette.size(); ++i) {
         std::cout << etichette[i] << ": " << valori[i] << std::endl;
@@ -202,7 +203,8 @@ int main() {
     }
 
     // Stampare le etichette e i valori ordinati
-    std::cout << "Elementi con relativo delta " << std::endl;
+    std::cout << "\n";
+    std::cout << "Elementi con relativo delta squlibrato " << std::endl;
     for (const auto& ev : etichettaValore) {
         
         //std::cout << ev.first << ": " << ev.second << std::endl;
@@ -219,22 +221,21 @@ int main() {
 
 
     // Stampa del contenitore con i titoli unici
-    std::cout << "Titoli da tenere d'occhio:\n";
+    std::cout << "\n";
+    std::cout << "Titoli da tenere d'occhio perche hanno delle opzioni ITM :\n";
+
     for (const auto& simbolo : titoli_da_tenere_d_occhio) {
         std::cout << simbolo << std::endl;
     }
 
     // Stampa del contenitore con i titoli da spostare
+    std::cout << "\n";
     std::cout << "Titoli da spostare:\n";
     for (const auto& simbolo : titoli_da_spostare) {
         std::cout << simbolo << std::endl;
     }
 
-
-
-
-    std::cout << "Fine programma"<< endl;
-
+    
     // Chiudi il file
     file.close();
 
