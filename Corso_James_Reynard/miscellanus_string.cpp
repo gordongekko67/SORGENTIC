@@ -22,5 +22,13 @@ int main(){
     std::cout << n << "\n";
     printarr(sk, n);
 
+
+
+    std:: string s1 = "Hello";
+    std::string  s2 ="World";
+    swap(s1,s2);
+    std::cout << s1 << "\n";
+    std::cout << s2 << "\n";
+
     return 0;
 }
