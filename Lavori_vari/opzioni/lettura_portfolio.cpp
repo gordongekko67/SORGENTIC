@@ -14,6 +14,7 @@
 #include <set>
 #include <cmath>
 #include <unordered_map>
+#include <chrono>
 
 
 using namespace std;
@@ -43,6 +44,12 @@ void memorspo(std::string s){
     
 
 int main() {
+
+    // partenza del clock 
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+
+
     //std::string filePath="../../Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
     std::string filePath="/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/portfoliook.csv";
 
@@ -238,6 +245,19 @@ int main() {
     
     // Chiudi il file
     file.close();
+
+
+
+    end = std::chrono::system_clock::now();
+ 
+    std::chrono::duration<double> elapsed_seconds = end - start;
+    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+ 
+    std::cout << "finished computation at " << std::ctime(&end_time)
+              << "elapsed time: " << elapsed_seconds.count() << "s\n";
+
+
+
 
     return 0;
 }
