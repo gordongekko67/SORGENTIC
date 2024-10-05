@@ -30,5 +30,21 @@ int main(){
     std::cout << s1 << "\n";
     std::cout << s2 << "\n";
 
+
+    std::string saluto= "Hello";
+    std::cout << saluto.data() << std::endl;
+    //printarr(saluto.data(), saluto.size());
+
+
+    for (int i=0; i < saluto.size(); i++){
+
+        std::cout << saluto[i]<< std::endl;
+    }
+
+
+    int arr[20]={1,2,3};
+    int num=sizeof(arr)/sizeof(arr[0]);
+    printarr(arr, num);
+
     return 0;
 }
