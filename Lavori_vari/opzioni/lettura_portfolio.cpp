@@ -51,7 +51,7 @@ int main() {
 
 
     //std::string filePath="../../Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
-    std::string filePath="/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/portfoliook.csv";
+    string filePath="/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/portfoliook.csv";
 
     std::ifstream file(filePath);
 
@@ -167,7 +167,7 @@ int main() {
     // visualizza tutte le posizioni che sono ITM
     if (valore_Deltaabs > 0.5 and int_Posizione <0){
 
-        std::cout << " attenzione il titolo è ITM !!! " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
+        std::cout << " attenzione il titolo è ITM !!!!!                        " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
         memorset(simbolo_scadenza);
         
     }
@@ -175,7 +175,7 @@ int main() {
     // visualizza tutte le posizioni OTM  da spostare eventualmente 
     if (valore_Deltaabs < 0.1 and int_Posizione <0){
 
-        std::cout << " attenzione il titolo è OTM !!!!! " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
+        std::cout << " attenzione il titolo è OTM !!!!!                        " << simbolo_scadenza <<  "  pos.  "<< int_Posizione <<"    Delta  " << valore_Delta<< endl;
         memorspo(simbolo_scadenza);
         
     }
