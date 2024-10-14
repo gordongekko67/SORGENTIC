@@ -23,6 +23,10 @@ public:
         temperature_super = tt;
     }
 
+   
+
+
+
     void stampafrigosuper()
     {
 
@@ -30,3 +34,4 @@ public:
         std::cout << "la temperature super e' " << temperature_super << std::endl;
     }
 };
+ //fr

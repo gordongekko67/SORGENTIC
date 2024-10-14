@@ -26,11 +26,6 @@ public:
                init(2,true, false, "Marca anonima");
         }
 
-       
-
-
-
-
         // costruttore standard
         refrigerator(int vtemperature, bool vdoor_open, bool vpower_on, std::string vmarca)
         {
@@ -42,9 +37,7 @@ public:
         {
                 init(5,false,false, marca=vmarca);
         }
-
-
-       
+  
         void stampa_frigo()
         {
                 std::cout << "la temperature e' " << temperature << std::endl;

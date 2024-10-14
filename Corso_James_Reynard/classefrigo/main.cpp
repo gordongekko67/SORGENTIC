@@ -22,6 +22,8 @@ int main(){
     frigosuper Frigo5( 89);
     Frigo5.stampafrigosuper();
 
+    frigosuper Frigo6=Frigo5;
+    Frigo6.stampafrigosuper();
 
     
 
