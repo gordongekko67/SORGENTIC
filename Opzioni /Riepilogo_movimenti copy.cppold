@@ -1,0 +1,96 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <map>
+#include <vector>
+#include <iomanip>
+#include <algorithm> // per sort
+
+struct Transaction {
+    std::string symbol;
+    double realizedProfit = 0.0;
+    double unrealizedProfit = 0.0;
+};
+
+int main() {
+    std::ifstream file("/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/Movimenti_anno.csv");
+
+    if (!file.is_open()) {
+        std::cerr << "Errore nell'apertura del file!" << std::endl;
+        return 1;
+    }
+
+    std::string line;
+    std::map<std::string, Transaction> summary;
+
+    // Salta le prime 5 righe di intestazione
+    for (int i = 0; i < 5 && std::getline(file, line); ++i);
+
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::vector<std::string> tokens;
+        std::string token;
+
+        // Estrai i token separati da virgole
+        while (std::getline(iss, token, ',')) {
+            tokens.push_back(token);
+        }
+
+        // Assicurati che ci siano almeno 14 campi
+        if (tokens.size() >= 14 && tokens[0] == "Sommario profitti e perdite Realizzati e Non realizzati" && tokens[1] == "Data") {
+            try {
+                std::string symbol = tokens[3];
+                double realizedProfit = std::stod(tokens[9]);
+                double unrealizedProfit = std::stod(tokens[13]);
+
+                // Usa emplace per evitare doppia ricerca nella mappa
+                auto& transaction = summary[symbol];
+                transaction.symbol = symbol;
+                transaction.realizedProfit += realizedProfit;
+                transaction.unrealizedProfit += unrealizedProfit;
+            } catch (const std::invalid_argument& e) {
+                std::cerr << "Errore nella conversione dei profitti: " << e.what() << std::endl;
+                continue;
+            } catch (const std::out_of_range& e) {
+                std::cerr << "Valore fuori range durante la conversione: " << e.what() << std::endl;
+                continue;
+            }
+        }
+    }
+
+    // Ordina il riepilogo per simbolo
+    std::vector<std::pair<std::string, Transaction>> sortedSummary(summary.begin(), summary.end());
+    std::sort(sortedSummary.begin(), sortedSummary.end(), [](const auto& a, const auto& b) {
+        return a.first < b.first; // Ordinamento alfabetico per simbolo
+    });
+
+    // Stampa il riepilogo
+    std::cout << std::setw(20) << "Simbolo" << std::setw(20) << "Profitto Realizzato" 
+              << std::setw(25) << "Profitto Non Realizzato" << std::setw(20) << "Totale" << std::endl;
+    std::cout << std::string(85, '-') << std::endl;
+
+    double totalRealizedProfit = 0.0;
+    double totalUnrealizedProfit = 0.0;
+
+    for (const auto& entry : sortedSummary) {
+        const auto& transaction = entry.second;
+        double total = transaction.realizedProfit + transaction.unrealizedProfit;
+
+        std::cout << std::setw(20) << transaction.symbol
+                  << std::setw(20) << std::fixed << std::setprecision(2) << transaction.realizedProfit
+                  << std::setw(25) << transaction.unrealizedProfit
+                  << std::setw(20) << total << std::endl;
+
+        totalRealizedProfit += transaction.realizedProfit;
+        totalUnrealizedProfit += transaction.unrealizedProfit;
+    }
+
+    std::cout << std::string(85, '-') << std::endl;
+    std::cout << std::setw(20) << "Totale"
+              << std::setw(20) << std::fixed << std::setprecision(2) << totalRealizedProfit
+              << std::setw(25) << totalUnrealizedProfit
+              << std::setw(20) << (totalRealizedProfit + totalUnrealizedProfit) << std::endl;
+
+    return 0;
+}
