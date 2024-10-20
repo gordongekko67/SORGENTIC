@@ -256,6 +256,26 @@ int main(){
 
 
 
+    std::string str2="Hello";
+    bool trovato=false;
+    
+    for(std::string::iterator it = str2.begin(); it != str2.end(); ++it) {
+
+        if (*it == 'l'){
+            std::cout << "trovato a posizione "  <<  *it << it -str2.begin() << ::endl;
+            trovato=true;
+
+        }
+    
+    }
+    
+    if (trovato==false){
+
+        std::cout << "Non trovato";
+    }
+  
+    
+
 
 
 
