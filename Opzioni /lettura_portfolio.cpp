@@ -139,6 +139,7 @@ int main() {
     float valore_Deltaabs= abs(valore_Delta);
     int int_Posizione = stoi(posizione);
     float valore_Delta_riga = int_Posizione*100*valore_Delta;
+    //float valore_non_realizzato=stof(pLnonRealizzato);
 
     // Stampa il risultato
     
@@ -179,6 +180,18 @@ int main() {
         memorspo(simbolo_scadenza);
         
     }
+
+    /*
+    // visualizza tutti gli elementi eventualmente ciu prendere profitto 
+    if(valore_non_realizzato > 0 and int_Posizione <0){
+
+            std::cout << " attenzione possibile presa di profitto !!!! " << simbolo_scadenza <<   endl;
+
+
+    }
+    */
+
+
 
 
 
