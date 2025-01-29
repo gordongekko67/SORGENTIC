@@ -1,0 +1,3 @@
+/Users/enricosaccheggiani/Henry/Sorgenti_C++/Opencv/build/CMakeFiles/MyProject.dir
+/Users/enricosaccheggiani/Henry/Sorgenti_C++/Opencv/build/CMakeFiles/edit_cache.dir
+/Users/enricosaccheggiani/Henry/Sorgenti_C++/Opencv/build/CMakeFiles/rebuild_cache.dir

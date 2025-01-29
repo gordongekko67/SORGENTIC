@@ -1,0 +1,98 @@
+[
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/minimal.dir/examples/minimal.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/minimal.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/minimal.cpp",
+  "output": "CMakeFiles/minimal.dir/examples/minimal.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/basic.dir/examples/basic.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/basic.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/basic.cpp",
+  "output": "CMakeFiles/basic.dir/examples/basic.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/modern.dir/examples/modern.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/modern.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/modern.cpp",
+  "output": "CMakeFiles/modern.dir/examples/modern.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/animation.dir/examples/animation.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/animation.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/animation.cpp",
+  "output": "CMakeFiles/animation.dir/examples/animation.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/nonblock.dir/examples/nonblock.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/nonblock.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/nonblock.cpp",
+  "output": "CMakeFiles/nonblock.dir/examples/nonblock.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/xkcd.dir/examples/xkcd.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/xkcd.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/xkcd.cpp",
+  "output": "CMakeFiles/xkcd.dir/examples/xkcd.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/bar.dir/examples/bar.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/bar.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/bar.cpp",
+  "output": "CMakeFiles/bar.dir/examples/bar.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/fill_inbetween.dir/examples/fill_inbetween.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/fill_inbetween.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/fill_inbetween.cpp",
+  "output": "CMakeFiles/fill_inbetween.dir/examples/fill_inbetween.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/fill.dir/examples/fill.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/fill.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/fill.cpp",
+  "output": "CMakeFiles/fill.dir/examples/fill.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/update.dir/examples/update.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/update.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/update.cpp",
+  "output": "CMakeFiles/update.dir/examples/update.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/subplot2grid.dir/examples/subplot2grid.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/subplot2grid.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/subplot2grid.cpp",
+  "output": "CMakeFiles/subplot2grid.dir/examples/subplot2grid.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/lines3d.dir/examples/lines3d.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/lines3d.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/lines3d.cpp",
+  "output": "CMakeFiles/lines3d.dir/examples/lines3d.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/surface.dir/examples/surface.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/surface.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/surface.cpp",
+  "output": "CMakeFiles/surface.dir/examples/surface.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/colorbar.dir/examples/colorbar.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/colorbar.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/colorbar.cpp",
+  "output": "CMakeFiles/colorbar.dir/examples/colorbar.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/contour.dir/examples/contour.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/contour.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/contour.cpp",
+  "output": "CMakeFiles/contour.dir/examples/contour.cpp.o"
+},
+{
+  "directory": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include -g -std=gnu++11 -arch arm64 -o CMakeFiles/spy.dir/examples/spy.cpp.o -c /Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/spy.cpp",
+  "file": "/Users/enricosaccheggiani/Henry/Sorgenti_C++/matplotlib-cpp/examples/spy.cpp",
+  "output": "CMakeFiles/spy.dir/examples/spy.cpp.o"
+}
+]
