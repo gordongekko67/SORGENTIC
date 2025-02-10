@@ -1,9 +1,3 @@
-//-------------------------------------------------------------------------------------------------
-//
-//     LETTURA PORTFOLIO.CSV  E ESECUZIONE  VARIE  ANALISI
-//
-//-------------------------------------------------------------------------------------------------
-
 #include <algorithm>  // Per std::find
 #include <chrono>
 #include <cmath>
@@ -14,202 +8,126 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <stdexcept>  // Per la gestione delle eccezioni
 
 using namespace std;
 
-std::vector<std::string> etichette;
-std::vector<double> valori;  // Assume che i valori siano numerici
-// Dichiarazione di un set per memorizzare i simboli dei titoli
+std::unordered_map<std::string, double> etichette_valori; // Uso unordered_map per migliorare le ricerche
 std::set<std::string> titoli_da_tenere_d_occhio;
 std::set<std::string> titoli_da_spostare;
 
 void memorset(std::string s) {
     titoli_da_tenere_d_occhio.insert(s);
-    // std::cout << " inserito il valore " <<  s <<  endl;
 }
 
 void memorspo(std::string s) {
     titoli_da_spostare.insert(s);
-    // std::cout << " inserito il valore  da spostare" <<  s <<  endl;
+}
+
+// Funzione per calcolare il valore temporale da valoreTemporale
+float calcola_valore_temporale(const std::string& valoreTemporale) {
+    size_t pos_percentuale = valoreTemporale.find(' ');
+    if (pos_percentuale != std::string::npos) {
+        std::string estratto = valoreTemporale.substr(0, pos_percentuale);
+        return std::stof(estratto);
+    }
+    return 0.0f;
+}
+
+// Funzione per gestire la lettura dei dati e l'analisi
+void analizza_dati(const std::string& line) {
+    std::stringstream ss(line);
+    std::string value;
+    std::vector<std::string> fields;
+
+    // Estrai i campi separati da virgola
+    while (std::getline(ss, value, ',')) {
+        fields.push_back(value);
+    }
+
+    // Assumiamo che i campi siano ordinati come nell'intestazione
+    std::string strumentoFinanziario = fields[0];
+    std::string delta = fields[2];
+    std::string valoreTemporale = fields[3];
+    std::string posizione = fields[4];
+    std::string pLnonRealizzato = fields[8];
+
+    // Estrai simbolo e scadenza
+    std::istringstream iss(strumentoFinanziario);
+    std::string part1, part2;
+    iss >> part1 >> part2;
+    std::string simbolo_scadenza = part1 + " " + part2;
+
+    // Calcola i valori
+    float valore_Delta = stof(delta);
+    float valore_Deltaabs = abs(valore_Delta);
+    int int_Posizione = stoi(posizione);
+    int valore_Non_Realizzato = stoi(pLnonRealizzato);
+    float valore_Delta_riga = int_Posizione * 100 * valore_Delta;
+
+    float valore_temporale = calcola_valore_temporale(valoreTemporale);
+
+    // Verifica se l'opzione è venduta (posizione < 0) e valore temporale inferiore a 1
+    if (int_Posizione < 0 && valore_temporale < 1.0) {
+        std::cout << "ALLARME: Opzione venduta con valore temporale inferiore a 1$!"
+                  << "\nSimbolo: " << simbolo_scadenza
+                  << ", Valore temporale: " << valore_temporale << "$\n";
+    }
+
+    // Gestione delle etichette
+    auto it = etichette_valori.find(simbolo_scadenza);
+    if (it != etichette_valori.end()) {
+        it->second += valore_Delta_riga;  // Somma al valore esistente
+    } else {
+        etichette_valori[simbolo_scadenza] = valore_Delta_riga;  // Aggiungi nuova etichetta
+    }
+
+    // Analisi delle posizioni ITM e OTM
+    if (valore_Deltaabs > 0.5 && int_Posizione < 0) {
+        std::cout << "Attenzione, il titolo è ITM! " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
+        memorset(simbolo_scadenza);
+    }
+
+    if (valore_Deltaabs < 0.1 && int_Posizione < 0) {
+        std::cout << "Attenzione, il titolo è OTM! Potrebbe essere utile prendere profitto: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
+        memorspo(simbolo_scadenza);
+    }
+
+    if (valore_Deltaabs > 0.4 && valore_Deltaabs <= 0.5 && int_Posizione < 0) {
+        std::cout << "Attenzione, il titolo si avvicina a ITM se non lo è già: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
+        memorset(simbolo_scadenza);
+    }
+
+    if (valore_Deltaabs > 0.5 && int_Posizione < 0 && valore_Non_Realizzato > 0) {
+        std::cout << "ATTENZIONE! Il titolo si può vendere - possibile presa di profitto: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Valore Non Realizzato: " << valore_Non_Realizzato << " Delta: " << valore_Delta << "\n\n";
+    }
 }
 
 int main() {
-    // partenza del clock
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
 
-    // std::string
-    // filePath="../../Sorgenti_Python/UtilitiesIB/mysite/portfolio.csv";
-    std::string filePath =
-        "/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/"
-        "portfoliook.csv";
-
+    std::string filePath = "/Users/enricosaccheggiani/Henry/Sorgenti_Python/UtilitiesIB/mysite/portfoliook.csv";
     std::ifstream file(filePath);
 
-    // Controlla se il file è stato aperto correttamente
     if (!file) {
         std::cerr << "Errore nell'apertura del file: " << filePath << std::endl;
         return 1;
     }
 
     std::string header;
-    // Leggi l'intestazione del file CSV
-    std::getline(file, header);
+    std::getline(file, header);  // Leggi l'intestazione
 
     std::string line;
     while (std::getline(file, line)) {
-        std::stringstream ss(line);
-        std::string value;
-        std::vector<std::string> fields;
-
-        // Estrai i campi separati da virgola
-        while (std::getline(ss, value, ',')) {
-            fields.push_back(value);
-        }
-
-        // Assumendo che i campi siano ordinati come nell'intestazione:
-        std::string strumentoFinanziario = fields[0];
-        std::string operazioneTicker = fields[1];
-        std::string delta = fields[2];
-        std::string valoreTemporale = fields[3];
-        std::string posizione = fields[4];
-        std::string prMedio = fields[5];
-        std::string valMkt = fields[6];
-        std::string pLgiorn = fields[7];
-        std::string pLnonRealizzato = fields[8];
-        std::string ultimo = fields[9];
-        std::string modifica = fields[10];
-        std::string variazionePerc = fields[11];
-        std::string gamma = fields[12];
-        std::string vega = fields[13];
-        std::string theta = fields[14];
-        std::string deltaPortafoglio = fields[15];
-        std::string gammaPortafoglio = fields[16];
-        std::string vegaPortafoglio = fields[17];
-        std::string thetaPortafoglio = fields[18];
-        std::string giorniRestantiAllUGT = fields[19];
-
-        // Utilizza std::istringstream per suddividere la stringa
-        std::istringstream iss(strumentoFinanziario);
-        std::string part1, part2;
-
-        // Estrai i primi due campi
-        iss >> part1 >> part2;
-
-        // Combina i due campi
-        std::string simbolo_scadenza = part1 + " " + part2;
-
-        // calcolo i valori della riga
-        float valore_Delta = stof(delta);
-        float valore_Deltaabs = abs(valore_Delta);
-        int int_Posizione = stoi(posizione);
-        float valore_Delta_riga = int_Posizione * 100 * valore_Delta;
-
-        // Estrai il valore temporale da valoreTemporale (prima del simbolo '%')
-        float valore_temporale = 0.0;
-        size_t pos_percentuale = valoreTemporale.find(
-            ' ');  // Trova la posizione dello spazio prima della parentesi
-        if (pos_percentuale != std::string::npos) {
-            // Estrai la parte numerica prima dello spazio
-            std::string estratto = valoreTemporale.substr(0, pos_percentuale);
-            valore_temporale =
-                std::stof(estratto);  // Converti la stringa in float
-        }
-
-        // Verifica se l'opzione è venduta (posizione < 0) e se il valore
-        // temporale è minore di 1
-        if (int_Posizione < 0 && valore_temporale < 1.0) {
-            std::cout << "ALLARME: Opzione venduta con valore temporale "
-                         "inferiore a 1$!"
-                      << std::endl;
-            std::cout << "Simbolo: " << simbolo_scadenza
-                      << ", Valore temporale: " << valore_temporale << "$"
-                      << std::endl;
-        }
-
-        // Cerca se l'etichetta esiste già nel vettore etichette
-        auto it =
-            std::find(etichette.begin(), etichette.end(), simbolo_scadenza);
-
-        if (it != etichette.end()) {
-            // Se l'etichetta esiste già, somma il valore corrispondente
-            int index = std::distance(etichette.begin(), it);
-            valori[index] += valore_Delta_riga;
-        } else {
-            // Se l'etichetta non esiste, aggiungi l'etichetta e il valore
-            etichette.push_back(simbolo_scadenza);
-            valori.push_back(valore_Delta_riga);
-        }
-
-        // Separatore per le righe (opzionale)
-        // std::cout << "-------------------------" << std::endl;
-
-        // visualizza tutte le posizioni che sono ITM
-        if (valore_Deltaabs > 0.5 and int_Posizione < 0) {
-            std::cout
-                << " attenzione il titolo è ITM !!!!!                        "
-                << simbolo_scadenza << "  pos.  " << int_Posizione
-                << "    Delta  " << valore_Delta << endl;
-            memorset(simbolo_scadenza);
-        }
-
-        // visualizza tutte le posizioni OTM da spostare eventualmente
-        if (valore_Deltaabs < 0.1 and int_Posizione < 0) {
-            std::cout << " attenzione il titolo è OTM !!!!!  potrebbe essere "
-                         "utile prendere profitto  "
-                      << simbolo_scadenza << "  pos.  " << int_Posizione
-                      << "    Delta  " << valore_Delta << endl;
-            memorspo(simbolo_scadenza);
-        }
-
-        /*
-        // visualizza tutti gli elementi eventualmente ciu prendere profitto
-        if(valore_non_realizzato > 0 and int_Posizione <0){
-                std::cout << " attenzione possibile presa di profitto !!!! " <<
-        simbolo_scadenza <<   endl;
-        }
-        */
-
-        // alla fine della elaborazione della riga stampa
-        if (valore_Deltaabs > 0.4 and valore_Deltaabs <= 0.5 and
-            int_Posizione < 0) {
-            std::cout
-                << " attenzione il titolo si avvicina a ITM se non lo è già  "
-                << simbolo_scadenza << "  pos.  " << int_Posizione
-                << "    Delta  " << valore_Delta << endl;
-            memorset(simbolo_scadenza);
+        try {
+            analizza_dati(line);
+        } catch (const std::exception& e) {
+            std::cerr << "Errore nella riga: " << line << "\n" << e.what() << std::endl;
         }
     }
 
-    // Alla fine stampa etichette e valori
-    // Visualizza il contenuto dei vettori
-    std::cout << "\n";
-    std::cout << "Etichette e valori combinati:" << std::endl;
-    for (size_t i = 0; i < etichette.size(); ++i) {
-        std::cout << etichette[i] << ": " << valori[i] << std::endl;
-    }
-
-    // Creare un vettore di coppie (etichetta, valore assoluto)
-    std::vector<std::pair<std::string, double> > etichettaValore;
-
-    for (size_t i = 0; i < etichette.size(); ++i) {
-        etichettaValore.push_back(
-            std::make_pair(etichette[i], std::abs(valori[i])));
-    }
-
-    // Stampare le etichette e i valori ordinati
-    std::cout << "\n";
-    std::cout << "Elementi con relativo delta squilibrato " << std::endl;
-    for (const auto& ev : etichettaValore) {
-        // std::cout << ev.first << ": " << ev.second << std::endl;
-
-        if (ev.second > 20) {
-            cout << "Attenzione ! la posizione di  " << ev.first
-                 << " è squilibrata " << endl;
-            memorset(ev.first);
-        }
-    }
-
+    // Visualizza i titoli da tenere d'occhio
     std::cout << "\nTitoli da tenere d'occhio:\n";
     for (const auto& titolo : titoli_da_tenere_d_occhio) {
         std::cout << titolo << std::endl;
