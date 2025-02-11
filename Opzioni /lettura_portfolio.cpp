@@ -50,7 +50,15 @@ void analizza_dati(const std::string& line) {
     std::string delta = fields[2];
     std::string valoreTemporale = fields[3];
     std::string posizione = fields[4];
-    std::string pLnonRealizzato = fields[8];
+    std::string pLnonRealizzato = fields[9];
+
+    std::string campo4 = fields[4];
+    std::string campo5 = fields[5];
+    std::string campo6 = fields[6];
+    std::string campo7 = fields[7];
+    std::string campo8 = fields[8];
+    std::string campo9 = fields[9];
+
 
     // Estrai simbolo e scadenza
     std::istringstream iss(strumentoFinanziario);
@@ -62,7 +70,22 @@ void analizza_dati(const std::string& line) {
     float valore_Delta = stof(delta);
     float valore_Deltaabs = abs(valore_Delta);
     int int_Posizione = stoi(posizione);
-    int valore_Non_Realizzato = stoi(pLnonRealizzato);
+    
+
+    //
+    int valore_Non_Realizzato = std::stoi(pLnonRealizzato);
+
+    // Stampa il valore
+    //std::cout << "Valore Non Realizzato: " << valore_Non_Realizzato << " strmento " << strumentoFinanziario << "" << pLnonRealizzato << std::endl;
+
+
+
+    //
+
+
+
+
+
     float valore_Delta_riga = int_Posizione * 100 * valore_Delta;
 
     float valore_temporale = calcola_valore_temporale(valoreTemporale);
@@ -94,12 +117,13 @@ void analizza_dati(const std::string& line) {
     }
 
     if (valore_Deltaabs > 0.4 && valore_Deltaabs <= 0.5 && int_Posizione < 0) {
-        std::cout << "Attenzione, il titolo si avvicina a ITM se non lo è già: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
-        memorset(simbolo_scadenza);
+        //std::cout << "Attenzione, il titolo si avvicina a ITM se non lo è già: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
+        //memorset(simbolo_scadenza);
     }
 
     if (valore_Deltaabs > 0.5 && int_Posizione < 0 && valore_Non_Realizzato > 0) {
         std::cout << "ATTENZIONE! Il titolo si può vendere - possibile presa di profitto: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Valore Non Realizzato: " << valore_Non_Realizzato << " Delta: " << valore_Delta << "\n\n";
+        
     }
 }
 
