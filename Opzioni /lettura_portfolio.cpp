@@ -13,16 +13,34 @@
 using namespace std;
 
 std::unordered_map<std::string, double> etichette_valori; // Uso unordered_map per migliorare le ricerche
-std::set<std::string> titoli_da_tenere_d_occhio;
-std::set<std::string> titoli_da_spostare;
+std::set<std::string> titoli_ITM;
+std::set<std::string> titoli_vicini_ITM;
+std::set<std::string> titoli_OTM;
+std::set<std::string> titoli_Take_Profit;
 
-void memorset(std::string s) {
-    titoli_da_tenere_d_occhio.insert(s);
+void memorITM(std::string s) {
+    titoli_ITM.insert(s);
 }
 
-void memorspo(std::string s) {
-    titoli_da_spostare.insert(s);
+void memor_vicini_ITM(std::string s) {
+    titoli_vicini_ITM.insert(s);
 }
+
+
+void memorOTM(std::string s) {
+    titoli_OTM.insert(s);
+}
+
+
+void memor_Take_Profit(std::string s) {
+    titoli_Take_Profit.insert(s);
+}
+
+
+
+
+
+
 
 // Funzione per calcolare il valore temporale da valoreTemporale
 float calcola_valore_temporale(const std::string& valoreTemporale) {
@@ -75,17 +93,6 @@ void analizza_dati(const std::string& line) {
     //
     int valore_Non_Realizzato = std::stoi(pLnonRealizzato);
 
-    // Stampa il valore
-    //std::cout << "Valore Non Realizzato: " << valore_Non_Realizzato << " strmento " << strumentoFinanziario << "" << pLnonRealizzato << std::endl;
-
-
-
-    //
-
-
-
-
-
     float valore_Delta_riga = int_Posizione * 100 * valore_Delta;
 
     float valore_temporale = calcola_valore_temporale(valoreTemporale);
@@ -108,22 +115,22 @@ void analizza_dati(const std::string& line) {
     // Analisi delle posizioni ITM e OTM
     if (valore_Deltaabs > 0.5 && int_Posizione < 0) {
         std::cout << "Attenzione, il titolo è ITM! " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
-        memorset(simbolo_scadenza);
+        memorITM(simbolo_scadenza);
     }
 
     if (valore_Deltaabs < 0.1 && int_Posizione < 0) {
         std::cout << "Attenzione, il titolo è OTM! Potrebbe essere utile prendere profitto: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
-        memorspo(simbolo_scadenza);
+        memorOTM(simbolo_scadenza);
     }
 
     if (valore_Deltaabs > 0.4 && valore_Deltaabs <= 0.5 && int_Posizione < 0) {
-        //std::cout << "Attenzione, il titolo si avvicina a ITM se non lo è già: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
-        //memorset(simbolo_scadenza);
+        std::cout << "Attenzione, il titolo si avvicina a ITM se non lo è già: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Delta: " << valore_Delta << "\n\n";
+        memor_vicini_ITM(simbolo_scadenza);
     }
 
     if (valore_Deltaabs > 0.5 && int_Posizione < 0 && valore_Non_Realizzato > 0) {
         std::cout << "ATTENZIONE! Il titolo si può vendere - possibile presa di profitto: " << simbolo_scadenza << " Posizione: " << int_Posizione << " Valore Non Realizzato: " << valore_Non_Realizzato << " Delta: " << valore_Delta << "\n\n";
-        
+        memor_Take_Profit(simbolo_scadenza);
     }
 }
 
@@ -151,11 +158,32 @@ int main() {
         }
     }
 
-    // Visualizza i titoli da tenere d'occhio
-    std::cout << "\nTitoli da tenere d'occhio:\n";
-    for (const auto& titolo : titoli_da_tenere_d_occhio) {
+    // Visualizza i titoli ITM
+    std::cout << "\nTitoli ITM:\n\n";
+    for (const auto& titolo : titoli_ITM) {
         std::cout << titolo << std::endl;
     }
+
+    // Visualizza i titoli da spostare
+    std::cout << "\nTitoli sui quali valutare se prendere profitto:\n\n";
+    for (const auto& titolo : titoli_OTM) {
+        std::cout << titolo << std::endl;
+    }
+
+     // Visualizza i titoli da tenere d'occhio
+     std::cout << "\nTitoli vicini ITM:\n";
+     for (const auto& titolo : titoli_vicini_ITM) {
+         std::cout << titolo << std::endl;
+     }
+
+      // Visualizza i titoli da prendere profitto
+      std::cout << "\nTitoli sui quali valutare se prendere profitto:\n";
+      for (const auto& titolo : titoli_Take_Profit) {
+          std::cout << titolo << std::endl;
+      }
+
+
+
 
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
