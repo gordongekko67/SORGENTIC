@@ -26,7 +26,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "immettere il nome del programma, ad esempio ${workspaceFolder}/a.out",
+            "program": "immettere il nome del programma, ad esempio ${/Users/enricosaccheggiani/Henry/Sorgenti_C++/Opzioni /lettura_portfolio.cpp}/lettura_portfolio.cpp",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

@@ -1,4 +1,4 @@
-
+/*
  * ----------------------------------------------------------------------------
  * Nome del programma: Analisi Portafoglio Opzioni
  * Descrizione: Questo programma esegue l'analisi dei dati di un portafoglio di
