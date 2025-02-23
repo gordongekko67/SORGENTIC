@@ -227,12 +227,6 @@ int main() {
         }
     }
 
-
-
-
-
-
-
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     std::cout << "Tempo di esecuzione: " << elapsed_seconds.count()
