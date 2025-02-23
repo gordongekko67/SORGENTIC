@@ -204,27 +204,27 @@ int main() {
     }
 
     // Stampa tutti i set
-    std::cout << "\nTitoli ITM:\n\n";
+    std::cout << "\nTitoli ITM:\n";
     for (const auto& titolo : titoli_ITM) {
         std::cout << titolo << std::endl;
     }
 
-    std::cout << "\nTitoli vicini a ITM:\n\n";
+    std::cout << "\nTitoli vicini a ITM:\n";
     for (const auto& titolo : titoli_vicini_ITM) {
         std::cout << titolo << std::endl;
     }
 
-    std::cout << "\nTitoli OTM in fase offensiva :\n\n";
+    std::cout << "\nTitoli OTM in fase offensiva :\n";
     for (const auto& titolo : titoli_OTM) {
         std::cout << titolo << std::endl;
     }
 
-    std::cout << "\nTitoli per Take Profit in fase difensiva:\n\n";
+    std::cout << "\nTitoli per Take Profit in fase difensiva:\n";
     for (const auto& titolo : titoli_Take_Profit) {
         std::cout << titolo << std::endl;
     }
 
-    std::cout << "\nStampa delle varie posizioni con Delta:\n\n";
+    std::cout << "\nStampa delle varie posizioni con Delta:\n";
     // Loop per leggere e stampare i valori
     for (const auto& [etichetta, valore] : etichette_valori) {
         {
@@ -234,11 +234,11 @@ int main() {
             }
         }
     }
-
+   
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
-    std::cout << "Tempo di esecuzione: " << elapsed_seconds.count()
-              << " secondi." << std::endl;
+    std::cout << "\nTempo di esecuzione: " << elapsed_seconds.count()
+              << " secondi.\n" << std::endl;
 
     return 0;
 }
