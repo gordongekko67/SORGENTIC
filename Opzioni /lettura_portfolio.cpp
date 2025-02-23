@@ -13,11 +13,12 @@
 using namespace std;
 
 /*
- * Questo programma legge un file CSV contenente informazioni su opzioni finanziarie
- * e le analizza per eseguire vari calcoli legati alla posizione Delta, al valore temporale
- * e alle opportunità di trading. Vengono anche memorizzati i titoli che soddisfano certi
- * criteri (ITM, vicini a ITM, OTM, Take Profit).
- * Il programma gestisce gli errori di conversione e segnala le problematiche.
+ * Questo programma legge un file CSV contenente informazioni su opzioni
+ * finanziarie e le analizza per eseguire vari calcoli legati alla posizione
+ * Delta, al valore temporale e alle opportunità di trading. Vengono anche
+ * memorizzati i titoli che soddisfano certi criteri (ITM, vicini a ITM, OTM,
+ * Take Profit). Il programma gestisce gli errori di conversione e segnala le
+ * problematiche.
  */
 
 // Funzione per verificare se una stringa rappresenta un numero valido
@@ -31,10 +32,10 @@ bool is_number(const std::string& str) {
     bool decimal_point = false;
     for (size_t i = start; i < str.length(); ++i) {
         if (str[i] == '.') {
-            if (decimal_point) return false; // Più di un punto decimale
+            if (decimal_point) return false;  // Più di un punto decimale
             decimal_point = true;
         } else if (!isdigit(str[i])) {
-            return false; // Non è un numero
+            return false;  // Non è un numero
         }
     }
     return true;
@@ -50,7 +51,8 @@ float calcola_valore_temporale(const std::string& valoreTemporale) {
     return 0.0f;
 }
 
-std::unordered_map<std::string, double> etichette_valori;  // Uso unordered_map per migliorare le ricerche
+std::unordered_map<std::string, double>
+    etichette_valori;  // Uso unordered_map per migliorare le ricerche
 std::set<std::string> titoli_ITM;
 std::set<std::string> titoli_vicini_ITM;
 std::set<std::string> titoli_OTM;
@@ -97,7 +99,8 @@ void analizza_dati(const std::string& line) {
     if (is_number(delta)) {
         valore_Delta = stof(delta);
     } else {
-        std::cerr << "Errore: valore Delta non valido per il simbolo " << simbolo_scadenza << std::endl;
+        std::cerr << "Errore: valore Delta non valido per il simbolo "
+                  << simbolo_scadenza << std::endl;
     }
 
     float valore_Deltaabs = abs(valore_Delta);
@@ -106,20 +109,23 @@ void analizza_dati(const std::string& line) {
     if (is_number(posizione)) {
         int_Posizione = stoi(posizione);
     } else {
-        std::cerr << "Errore: valore Posizione non valido per il simbolo " << simbolo_scadenza << std::endl;
+        std::cerr << "Errore: valore Posizione non valido per il simbolo "
+                  << simbolo_scadenza << std::endl;
     }
 
     int valore_Non_Realizzato = 0;
     if (is_number(pLnonRealizzato)) {
         valore_Non_Realizzato = std::stoi(pLnonRealizzato);
     } else {
-        std::cerr << "Errore: valore Non Realizzato non valido per il simbolo " << simbolo_scadenza << std::endl;
+        std::cerr << "Errore: valore Non Realizzato non valido per il simbolo "
+                  << simbolo_scadenza << std::endl;
     }
 
     float valore_Delta_riga = int_Posizione * 100 * valore_Delta;
     float valore_temporale = calcola_valore_temporale(valoreTemporale);
 
-    // Verifica se l'opzione è venduta (posizione < 0) e valore temporale inferiore a 1
+    // Verifica se l'opzione è venduta (posizione < 0) e valore temporale
+    // inferiore a 1
     if (int_Posizione < 0 && valore_temporale < 1.0) {
         std::cout
             << "ALLARME: Opzione venduta con valore temporale inferiore a 1$!"
@@ -222,8 +228,10 @@ int main() {
     // Loop per leggere e stampare i valori
     for (const auto& [etichetta, valore] : etichette_valori) {
         {
-            std::cout << "Etichetta: " << etichetta << " - Valore: " << valore
-                      << '\n';
+            float valoreabs = abs(valore);
+            if (valoreabs > 10) {
+                std::cout << "Etichetta: " << etichetta << " - Valore: " << valore << '\n';
+            }
         }
     }
 
